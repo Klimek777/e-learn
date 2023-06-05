@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import './style.css'
-import App from './App.vue'
 import router from './router'
+import App from '../src/App.vue'
 
 createApp(App)
     .use(router)
+    .component('Navigator', Navigator)
     .mount('#app')
