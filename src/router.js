@@ -5,6 +5,7 @@ import Register from './components/Register.vue';
 import Dashboard from './components/Dashboard.vue';
 import Search from './components/Search.vue';
 import CreateCourse from './components/CreateCourse.vue';
+import CourseDetails from './components/CourseDetails.vue'
 
 const routes = [
   { path: '/login', component: Login },
@@ -13,6 +14,7 @@ const routes = [
   { path: '/dashboard', component: Dashboard },
   { path: '/search', component: Search },
   { path: '/create-course', component: CreateCourse },
+  {path: '/course-details', component:CourseDetails}
 ];
 
 const router = createRouter({

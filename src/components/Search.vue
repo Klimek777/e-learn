@@ -1,7 +1,10 @@
 <template>
-   <div class="py-20 h-screen bg-white">
-    <h1 font-mono> Search course</h1>
-  <div class="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
+  <div class="bg-white py-24 sm:py-32 flex justify-center items-center">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Search Course</h2>
+          <p class="mt-2 text-lg leading-8 text-gray-600">Gain new knowledge here! Search all courses on CourseMate!</p>
+          <div class="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
   <div class="md:flex">
       <div class="w-full p-3">
         
@@ -13,14 +16,12 @@
         <div>
           <button type="submit" class=" mt-7 flex w-full justify-center  rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-none focus-visible:outline-offset-2 focus-visible:outline-black"> Search</button>
         </div>
-        
-        
-
-        
       </div>
-   
   </div>
 </div>
+</div>
+</div>
+
   
 </div>
     </template>
