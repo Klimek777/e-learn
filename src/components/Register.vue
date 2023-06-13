@@ -58,10 +58,7 @@
       password: '',
     };
   },
-  created() {
- 
- this.checkSession(); // Sprawdzanie sesji przy tworzeniu komponentu
-},
+  
 
   methods: {
 

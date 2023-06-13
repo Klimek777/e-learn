@@ -43,6 +43,10 @@
 <script>
   import axios from 'axios'
 export default {
+  created() {
+ 
+ this.checkSession(); // Sprawdzanie sesji przy tworzeniu komponentu
+},
   data() {
     return {
       posts: 
@@ -160,12 +164,10 @@ export default {
       // W przypadku błędu lub braku aktywnej sesji, przekieruj użytkownika na stronę logowania
       console.log('Błąd uwierzytelnienia lub wygasła sesja');
       console.log(error)
-      // window.location.href = '/login';
+      window.location.href = '/login';
     }
   }
-  },
-  created() {
-    this.checkSession(); // Sprawdzanie sesji przy tworzeniu komponentu
   }
+ 
 };
 </script>

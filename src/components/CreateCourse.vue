@@ -45,6 +45,10 @@
     import axios from 'axios'
 
   export default {
+    created() {
+ 
+ this.checkSession(); // Sprawdzanie sesji przy tworzeniu komponentu
+},
     data() {
       return {
         modules: [
