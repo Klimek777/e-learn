@@ -1,22 +1,23 @@
 <template>
-    <div class="bg-white py-24 sm:py-32 flex justify-center items-center">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl lg:mx-0">
-          <h2 class="text-3xl font-bold tracking-tight text-orange-500 sm:text-4xl">{{ courseTitle }}</h2>
-        </div>
-    
-        <div class="mb-4 mt-4 px-2 w-full">
-          <p id="courseDescription" class="text-lg">{{ courseDescription }}</p>
-        </div>
-        <div v-for="(module, index) in modules" :key="index" class="mb-8 mt-20">
+  <div class="bg-white py-24 sm:py-32 flex justify-center items-center">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0 text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-orange-500 sm:text-4xl">{{ courseTitle }}</h2>
+      </div>
+
+      <div class="mb-4 mt-4 px-2 w-full">
+        <p id="courseDescription"  class="text-lg text-gray-900">{{ courseDescription }}</p>
+      </div>
+
+      <div v-for="(module, index) in modules" :key="index" class="mb-8 mt-20">
+        <div class="bg-gray-100 text-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
           <h3 class="text-2xl font-bold mb-2">Module {{ index + 1 }}</h3>
+
           <div>
             <h4 class="text-xl font-medium mb-1 text-orange-500">{{ module.title }}</h4>
-            <p class="text-lg"></p>
-          </div>
-          <div class="mt-4">
             <p class="text-lg">{{ module.content }}</p>
           </div>
+
           <div class="mt-4">
             <h4 class="text-xl font-medium mb-1">File:</h4>
             <p class="text-lg">{{ module.file }}</p>
@@ -24,7 +25,9 @@
         </div>
       </div>
     </div>
-  </template>
+  </div>
+</template>
+
   
   <script>
   export default {
