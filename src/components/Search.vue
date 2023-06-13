@@ -69,23 +69,37 @@
 export default {
   
   created() {
-  axios.defaults.withCredentials = true;
+ 
    this.checkSession(); // Sprawdzanie sesji przy tworzeniu komponentu
   },
   methods: {
     async checkSession() {
-      try {
-        console.log('test')
-        // Wykonaj żądanie do backendu, aby sprawdzić, czy sesja jest aktywna
-        const response = await axios.get('https://localhost:7105/session/check');
-        
-        console.log(response)
-      } catch (error) {
-        // W przypadku błędu lub braku aktywnej sesji, przekieruj użytkownika na stronę logowania
-        // window.location.href = '/login';
-        console.log(error)
-      }
+    try {
+      console.log(localStorage.getItem('token'));
+      // Pobierz token z lokalnego magazynu
+      const token = localStorage.getItem('token');
+  
+  
+      // Wykonaj żądanie do backendu, aby sprawdzić poprawność tokena
+      const response = await axios.get('https://localhost:7105/session/check', {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
+  
+      // Token jest poprawny, użytkownik jest zalogowany
+      console.log('Użytkownik jest zalogowany');
+
+  
+      // Możesz przekierować użytkownika na inną stronę lub wykonać inne działania dla zalogowanego użytkownika
+      // window.location.href = '/search';
+    } catch (error) {
+      // W przypadku błędu lub braku aktywnej sesji, przekieruj użytkownika na stronę logowania
+      console.log('Błąd uwierzytelnienia lub wygasła sesja');
+      console.log(error)
+      window.location.href = '/login';
     }
+  }
   }
 };
 

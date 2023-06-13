@@ -59,6 +59,12 @@ try {
   
 
   if(response.status == 200) {
+     // Pobierz token z odpowiedzi
+     const token = response.data.token;
+    console.log(token)
+// Zapisz token w lokalnym magazynie
+    localStorage.setItem('token', token);
+    
     window.location.href='/dashboard'
     console.log('Logowanie powiodło się');
   }

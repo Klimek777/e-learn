@@ -42,6 +42,8 @@
   </template>
   
   <script>
+    import axios from 'axios'
+
   export default {
     data() {
       return {
@@ -55,6 +57,34 @@
       };
     },
     methods: {
+
+      async checkSession() {
+    try {
+      console.log(localStorage.getItem('token'));
+      // Pobierz token z lokalnego magazynu
+      const token = localStorage.getItem('token');
+  
+  
+      // Wykonaj żądanie do backendu, aby sprawdzić poprawność tokena
+      const response = await axios.get('https://localhost:7105/session/check', {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
+  
+      // Token jest poprawny, użytkownik jest zalogowany
+      console.log('Użytkownik jest zalogowany');
+
+  
+      // Możesz przekierować użytkownika na inną stronę lub wykonać inne działania dla zalogowanego użytkownika
+      // window.location.href = '/search';
+    } catch (error) {
+      // W przypadku błędu lub braku aktywnej sesji, przekieruj użytkownika na stronę logowania
+      console.log('Błąd uwierzytelnienia lub wygasła sesja');
+      console.log(error)
+      window.location.href = '/login';
+    }
+  },
       addModule() {
         this.modules.push({
           title: '',
