@@ -63,3 +63,31 @@
     </div>
   </div>
 </template>
+
+<script>
+  import axios from 'axios'
+export default {
+  
+  created() {
+  axios.defaults.withCredentials = true;
+   this.checkSession(); // Sprawdzanie sesji przy tworzeniu komponentu
+  },
+  methods: {
+    async checkSession() {
+      try {
+        console.log('test')
+        // Wykonaj żądanie do backendu, aby sprawdzić, czy sesja jest aktywna
+        const response = await axios.get('https://localhost:7105/session/check');
+        
+        console.log(response)
+      } catch (error) {
+        // W przypadku błędu lub braku aktywnej sesji, przekieruj użytkownika na stronę logowania
+        // window.location.href = '/login';
+        console.log(error)
+      }
+    }
+  }
+};
+
+
+</script>

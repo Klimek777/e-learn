@@ -37,6 +37,9 @@
       </div>
     </div>
   </template>
+
+
+
   
   <script setup>
   const posts = [
@@ -127,4 +130,6 @@
     },
     // More posts...
   ]
+    
+
   </script>
