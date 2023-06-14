@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white justify-center items-center grid">
+  <div class="bg-white py-20 sm:py-20 justify-center items-center grid">
     <div class="mx-auto max-w-7xl px-6 lg:px-8 py-20">
       <div class="mx-auto max-w-2xl lg:mx-0">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
