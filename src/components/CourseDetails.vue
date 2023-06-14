@@ -97,7 +97,7 @@ export default {
     async joinCourse() {
       try {
         const response_course_details = await axios.get(
-          "https://localhost:7105/course/" + this.$route.params.id + "/join", {
+          "https://localhost:44389/course/" + this.$route.params.id + "/join", {
             headers: {
               "userId": sessionStorage.getItem("userId"),
             }
@@ -142,7 +142,7 @@ base64ToBlob(base64Data) {
         const token = localStorage.getItem("token");
 
         // Wykonaj żądanie do backendu, aby sprawdzić poprawność tokena
-        const response = await axios.get("https://localhost:7105/session/check", {
+        const response = await axios.get("https://localhost:44389/session/check", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -163,7 +163,7 @@ base64ToBlob(base64Data) {
     async getCourseDetails() {
       try {
         const response_course_details = await axios.get(
-          "https://localhost:7105/course-details/" + this.$route.params.id + "/read"
+          "https://localhost:44389/course-details/" + this.$route.params.id + "/read"
         );
         console.log(response_course_details.data);
         return response_course_details.data;
@@ -173,7 +173,7 @@ base64ToBlob(base64Data) {
     },
     async getFile(courseId, moduleNumber) {
       const response_files = await axios.get(
-        "https://localhost:7105/course-details/" +
+        "https://localhost:44389/course-details/" +
           courseId.toString() +
           "/" +
           moduleNumber.toString() +

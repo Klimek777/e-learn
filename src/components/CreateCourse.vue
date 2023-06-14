@@ -3,36 +3,36 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:mx-0">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Create Course
+          Create a Course
         </h2>
         <p class="mt-2 text-lg leading-8 text-gray-600">
-          Good knowledge of some niche? Share it with others and help them grow!
+          Do you have knowledge on a particular topic? Share it with others and help them grow!
         </p>
       </div>
       <div class="mb-4 mt-4 px-2 w-full">
-        <label class="block mb-1 text-lg" for="courseTitle"
-          >Course title:</label
-        >
+        <label class="block mb-1 text-lg text-black" for="courseTitle">
+          Course Title:
+        </label>
         <input
           id="courseTitle"
           v-model="courseTitle"
-          class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
+          class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none text-black"
           type="text"
           autofocus
-          placeholder="Full course name...."
+          placeholder="Enter the full course title..."
         />
       </div>
       <div class="mb-4 mt-4 px-2 w-full">
-        <label class="block mb-1 text-lg" for="courseDescription"
-          >Description:</label
-        >
+        <label class="block mb-1 text-lg text-black" for="courseDescription">
+          Description:
+        </label>
         <input
           id="courseDescription"
-          class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
+          class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none text-black"
           type="text"
           v-model="courseDescription"
           autofocus
-          placeholder="Short course description...."
+          placeholder="Enter a brief course description..."
         />
       </div>
       <div
@@ -44,68 +44,98 @@
           Module {{ index + 1 }}
         </h3>
         <div class="mb-4 mt-2">
-          <label class="block mb-1 text-lg" :for="'moduleTitle-' + index"
-            >Module title:</label
+          <label
+            class="block mb-1 text-lg text-black"
+            :for="'moduleTitle-' + index"
           >
+            Module Title:
+          </label>
           <input
             :id="'moduleTitle-' + index"
-            class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
+            class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none text-black"
             type="text"
             v-model="module.title"
-            placeholder="Module title...."
+            placeholder="Enter the module title..."
           />
         </div>
         <div class="mb-4 mt-2">
-          <label class="block mb-1 text-lg" :for="'moduleContent-' + index"
-            >Content:</label
+          <label
+            class="block mb-1 text-lg text-black"
+            :for="'moduleContent-' + index"
           >
+            Content:
+          </label>
           <textarea
             :id="'moduleContent-' + index"
-            class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
+            class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none text-black"
             rows="5"
             v-model="module.content"
-            placeholder="Module content...."
+            placeholder="Enter the module content..."
           ></textarea>
         </div>
         <div class="mb-4 mt-2">
-          <label class="block mb-1 text-lg" :for="'moduleFile-' + index"
-            >File:</label
-          >
-          <input
-            :id="'moduleFile-' + index"
-            class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
-            type="file"
-            v-on:change="handleFileChange($event, index)"
-          />
+          <label class="block mb-1 text-lg" :for="'moduleFile-' + index">
+            File:
+          </label>
+          <div class="relative">
+            <input
+              :id="'moduleFile-' + index"
+              class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none text-black bg-white custom-file-input"
+              type="file"
+              v-on:change="handleFileChange($event, index)"
+            />
+          </div>
         </div>
-        <div class="mb-2">
+        <div class="mb-2 flex">
           <button
             @click="removeModule(index)"
-            class="bg-red-500 hover:bg-red-700 text-white font-light py-2 px-4 rounded"
+            class="flex-grow bg-red-500 hover:bg-red-700 text-white font-light py-2 px-4 rounded mr-2 transition-colors duration-300"
           >
             Remove Module
           </button>
+          <button
+            @click="addModule"
+            class="flex-grow bg-orange-500 hover:bg-orange-700 text-white font-light py-2 px-4 rounded transition-colors duration-300"
+          >
+            Add Module
+          </button>
         </div>
       </div>
-      <div class="mb-4 mt-4 px-2 w-full">
-        <button
-          @click="addModule"
-          class="bg-orange-500 hover:bg-orange-700 text-white font-light py-2 px-4 rounded"
-        >
-          Add Module
-        </button>
-      </div>
-      <div class="mb-4 mt-4 px-2 w-full">
+      <div class="mb-4 mt-4 px-2 w-full flex">
         <button
           @click="submit"
-          class="bg-green-500 hover:bg-green-700 text-white font-light py-2 px-4 rounded"
+          class="flex-grow bg-green-500 hover:bg-green-700 text-white font-light py-2 px-4 rounded transition-colors duration-300"
         >
-          Submit
+          Create
         </button>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+.custom-file-input {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  padding: 10px 16px;
+  border: 2px solid #cbd5e0;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 8px;
+}
+.custom-file-input:hover {
+  background-color: #d4d4d4;
+}
+.custom-file-input:focus {
+  outline: none;
+  border-color: #4c51bf;
+  box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.3);
+}
+</style>
+
+
+
+
 
 <script>
 import axios from "axios";
@@ -140,7 +170,7 @@ export default {
 
         // Wykonaj żądanie do backendu, aby sprawdzić poprawność tokena
         const response = await axios.get(
-          "https://localhost:7105/session/check",
+          "https://localhost:44389/session/check",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -175,7 +205,7 @@ export default {
       // You can access them using `this.courseTitle`, `this.courseDescription`, and `this.modules`
       try {
         const response = await axios.post(
-          "https://localhost:7105/course/create",
+          "https://localhost:44389/course/create",
           {
             id: parseInt(sessionStorage.getItem("userId")),
             title: this.courseTitle,
@@ -184,7 +214,7 @@ export default {
         );
 
         const response_module = await this.modules.map((module) => {
-          return axios.post("https://localhost:7105/module/create", {
+          return axios.post("https://localhost:44389/module/create", {
             courseId: response.data["courseId"],
             title: module.title,
             content: module.content
@@ -201,7 +231,7 @@ export default {
             formData.append("courseId", response.data["courseId"]);
             formData.append("moduleId", i+1);
 
-            const response_file = await axios.post("https://localhost:7105/module/file", formData)
+            const response_file = await axios.post("https://localhost:44389/module/file", formData)
             console.log(response_file);
           }
         }

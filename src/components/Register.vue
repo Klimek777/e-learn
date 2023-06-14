@@ -67,7 +67,7 @@
 // Zatrzymuje domyślne zachowanie formularza
     
     try {
-      const response = await axios.post('https://localhost:7105/register/create', {
+      const response = await axios.post('https://localhost:44389/register/create', {
         name: this.name,
         email: this.email,
         password: this.password,

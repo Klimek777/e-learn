@@ -31,7 +31,7 @@
                     </div>
                     <input
                       v-model="searchText"
-                      class="w-full border pl-12 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none text-lg"
+                      class="w-full border pl-12 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none text-lg text-black"
                       type="text"
                       placeholder="Search..."
                     />
@@ -221,7 +221,7 @@ export default {
 
         // Wykonaj żądanie do backendu, aby sprawdzić poprawność tokena
         const response = await axios.get(
-          "https://localhost:7105/session/check",
+          "https://localhost:44389/session/check",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -244,7 +244,7 @@ export default {
     async getCourses() {
       try {
         const response_courses = await axios.get(
-          "https://localhost:7105/courses/read"
+          "https://localhost:44389/courses/read"
         );
         return response_courses.data;
       } catch (error) {
@@ -256,7 +256,7 @@ export default {
       try {
         var coursesIDs = JSON.parse(sessionStorage.getItem("recentlyViewed"));
         const response_recently = await axios.get(
-          "https://localhost:7105/courses/recently-viewed/read",
+          "https://localhost:44389/courses/recently-viewed/read",
           {
             headers: {
               courses: coursesIDs,
