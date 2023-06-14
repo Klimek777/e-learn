@@ -2,7 +2,7 @@
   <div class="bg-white py-24 sm:py-12 flex justify-center items-center">
     <div class="mx-auto max-w-7xl px-6 lg:px-8 w-full">
       <div class="flex justify-end">
-        <button v-on:click="search"
+        <button v-on:click="joinCourse"
                   type="button"
                   class="max-w-[10rem] mt-7 flex w-full justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 transform hover:scale-105 transition duration-300"
                 >
@@ -93,6 +93,23 @@ export default {
       });
   },
   methods: {
+
+    async joinCourse() {
+      try {
+        const response_course_details = await axios.get(
+          "https://localhost:7105/course/" + this.$route.params.id + "/join", {
+            headers: {
+              "userId": sessionStorage.getItem("userId"),
+            }
+          }
+        );
+        alert("Join succeded!");
+        return "Join succeded!";
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     getDownloadUrl(fileContent) {
   const blob = this.base64ToBlob(fileContent);
   const url = URL.createObjectURL(blob);

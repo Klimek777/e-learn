@@ -209,7 +209,7 @@ export default {
         console.log(response.data); // Możesz np. wyświetlić odpowiedź w konsoli
 
         if (response.status == 200) {
-          alert("Kurs został dodany pomyślnie");
+          alert("Course added successfully!");
         }
       } catch (error) {
         // Obsłuż błąd, jeśli wystąpił problem z żądaniem

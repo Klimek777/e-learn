@@ -144,6 +144,7 @@ export default {
       // Usuń zmienną token z localStorage
       localStorage.removeItem("token");
       sessionStorage.removeItem("userId");
+      sessionStorage.removeItem("recentlyViewed");
     },
   },
   props: {
