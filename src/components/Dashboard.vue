@@ -176,21 +176,21 @@ export default {
         window.location.href = "/login";
       }
     },
-    async getMyCourses() {
-      try {
-        const response_my_courses = await axios.get(
-          "https://localhost:7105/courses/joined", {
-            headers: {
-              "userId": sessionStorage.getItem("userId")
-            }
-          }
-        );
-        console.log(response_my_courses.data);
-        return response_courses.data;
-      } catch (error) {
-        console.log(error);
-      }
-    },
+    // async getMyCourses() {
+    //   try {
+    //     const response_my_courses = await axios.get(
+    //       "https://localhost:7105/courses/joined", {
+    //         headers: {
+    //           "userId": sessionStorage.getItem("userId")
+    //         }
+    //       }
+    //     );
+    //     console.log(response_my_courses.data);
+    //     return response_courses.data;
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
   },
 };
 </script>
