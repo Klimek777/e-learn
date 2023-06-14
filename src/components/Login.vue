@@ -52,7 +52,7 @@ event.preventDefault();
 // Zatrzymuje domyślne zachowanie formularza
 
 try {
-  const response = await axios.post('https://localhost:44389/login/authenticate', {
+  const response = await axios.post('https://localhost:7105/login/authenticate', {
     email: this.email,
     password: this.password,
   });

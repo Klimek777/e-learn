@@ -221,7 +221,7 @@ export default {
 
         // Wykonaj żądanie do backendu, aby sprawdzić poprawność tokena
         const response = await axios.get(
-          "https://localhost:44389/session/check",
+          "https://localhost:7105/session/check",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -244,7 +244,7 @@ export default {
     async getCourses() {
       try {
         const response_courses = await axios.get(
-          "https://localhost:44389/courses/read"
+          "https://localhost:7105/courses/read"
         );
         return response_courses.data;
       } catch (error) {
@@ -256,7 +256,7 @@ export default {
       try {
         var coursesIDs = JSON.parse(sessionStorage.getItem("recentlyViewed"));
         const response_recently = await axios.get(
-          "https://localhost:44389/courses/recently-viewed/read",
+          "https://localhost:7105/courses/recently-viewed/read",
           {
             headers: {
               courses: coursesIDs,

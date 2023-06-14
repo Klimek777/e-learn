@@ -170,7 +170,7 @@ export default {
 
         // Wykonaj żądanie do backendu, aby sprawdzić poprawność tokena
         const response = await axios.get(
-          "https://localhost:44389/session/check",
+          "https://localhost:7105/session/check",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -205,7 +205,7 @@ export default {
       // You can access them using `this.courseTitle`, `this.courseDescription`, and `this.modules`
       try {
         const response = await axios.post(
-          "https://localhost:44389/course/create",
+          "https://localhost:7105/course/create",
           {
             id: parseInt(sessionStorage.getItem("userId")),
             title: this.courseTitle,
@@ -214,7 +214,7 @@ export default {
         );
 
         const response_module = await this.modules.map((module) => {
-          return axios.post("https://localhost:44389/module/create", {
+          return axios.post("https://localhost:7105/module/create", {
             courseId: response.data["courseId"],
             title: module.title,
             content: module.content
@@ -231,7 +231,7 @@ export default {
             formData.append("courseId", response.data["courseId"]);
             formData.append("moduleId", i+1);
 
-            const response_file = await axios.post("https://localhost:44389/module/file", formData)
+            const response_file = await axios.post("https://localhost:7105/module/file", formData)
             console.log(response_file);
           }
         }

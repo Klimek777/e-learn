@@ -124,7 +124,7 @@ export default {
 
         // Wykonaj żądanie do backendu, aby sprawdzić poprawność tokena
         const response = await axios.get(
-          "https://localhost:44389/session/check",
+          "https://localhost:7105/session/check",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -147,7 +147,7 @@ export default {
     async getMyCourses() {
       try {
         const response_my_courses = await axios.get(
-          "https://localhost:44389/courses/joined", {
+          "https://localhost:7105/courses/joined", {
             headers: {
               "userId": sessionStorage.getItem("userId")
             }
