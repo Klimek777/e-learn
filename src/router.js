@@ -14,7 +14,7 @@ const routes = [
   { path: '/dashboard', component: Dashboard },
   { path: '/search', component: Search },
   { path: '/create-course', component: CreateCourse },
-  {path: '/course-details', component:CourseDetails}
+  { path: '/course-details/:id', component:CourseDetails}
 ];
 
 const router = createRouter({

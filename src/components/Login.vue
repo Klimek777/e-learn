@@ -64,6 +64,7 @@ try {
     console.log(token)
 // Zapisz token w lokalnym magazynie
     localStorage.setItem('token', token);
+    sessionStorage.setItem('userId', response.data["userId"]);
     
     window.location.href='/dashboard'
     console.log('Logowanie powiodło się');
